@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import { vesselImageLeft, builderSteps } from "@/lib/data";
+import { vesselImageLeft, builderSteps, fillings } from "@/lib/data";
 import { useSelection } from "./SelectionContext";
 
 const stats = [
@@ -15,7 +15,8 @@ const stats = [
 
 function buildMailto(selection: ReturnType<typeof useSelection>["selection"]) {
 	const lines = builderSteps.map(
-		(s) => `- ${s.label}: ${selection[s.key]?.name ?? "(not selected)"}`,
+		(s) =>
+			`- ${s.label}: ${selection[s.key]?.name ?? fillings[s.key][0].name} (default)`,
 	);
 	const body = `Hello,\n\nI would like to order the following Triad configuration:\n\n${lines.join("\n")}\n\nThank you.`;
 	return `mailto:Yizhou6651@dubaicollege.org?subject=${encodeURIComponent("Triad Order Inquiry")}&body=${encodeURIComponent(body)}`;
