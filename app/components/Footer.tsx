@@ -19,9 +19,9 @@ export default function Footer() {
 						<Image
 							src="/logo.png"
 							alt="Triad"
-							width={140}
-							height={147}
-							className="h-20 w-auto md:h-24 mb-4"
+							width={280}
+							height={294}
+							className="h-40 w-auto md:h-48 mb-4"
 						/>
 						<p className="text-sm font-body font-light text-[#FDFCFB]/30 leading-relaxed max-w-sm">
 							The world&apos;s first architecturally stratified

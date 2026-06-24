@@ -28,7 +28,7 @@ export default function Nav() {
 					: "bg-transparent"
 			}`}
 		>
-			<nav className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16 md:h-20">
+			<nav className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-20 md:h-28">
 				<a
 					href="#top"
 					aria-label="Triad home"
@@ -37,9 +37,9 @@ export default function Nav() {
 					<Image
 						src="/logo.png"
 						alt="Triad"
-						width={56}
-						height={59}
-						className="h-10 w-auto md:h-12"
+						width={112}
+						height={118}
+						className="h-20 w-auto md:h-24"
 						priority
 					/>
 				</a>
