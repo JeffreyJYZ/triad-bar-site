@@ -25,7 +25,7 @@ export default function Lab() {
 			if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd))
 				return;
 			e.preventDefault();
-			el.scrollBy({ left: e.deltaY, behavior: "auto" });
+				el.scrollBy({ left: e.deltaY, behavior: "smooth" });
 		};
 		el.addEventListener("wheel", onWheel, { passive: false });
 		return () => el.removeEventListener("wheel", onWheel);
@@ -55,7 +55,7 @@ export default function Lab() {
 
 			<div
 				ref={trackRef}
-				className="flex gap-6 md:gap-10 px-6 md:px-10 pb-8 overflow-x-auto snap-x snap-mandatory cursor-grab active:cursor-grabbing [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+				className="flex gap-6 md:gap-10 px-6 md:px-10 pb-8 overflow-x-auto cursor-grab active:cursor-grabbing [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
 			>
 				{labCards.map((card, i) => (
 					<motion.div
