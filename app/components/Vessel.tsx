@@ -14,10 +14,12 @@ const stats = [
 ];
 
 function buildMailto(selection: ReturnType<typeof useSelection>["selection"]) {
-	const lines = builderSteps.map(
-		(s) =>
-			`- ${s.label}: ${selection[s.key]?.name ?? fillings[s.key][0].name} (default)`,
-	);
+	const lines = builderSteps.map((s) => {
+		const picked = selection[s.key];
+		const name = picked?.name ?? fillings[s.key][0].name;
+		const tag = picked ? "" : " (default)";
+		return `- ${s.label}: ${name}${tag}`;
+	});
 	const body = `Hello,\n\nI would like to order the following Triad configuration:\n\n${lines.join("\n")}\n\nThank you.`;
 	return `mailto:Yizhou6651@dubaicollege.org?subject=${encodeURIComponent("Triad Order Inquiry")}&body=${encodeURIComponent(body)}`;
 }
