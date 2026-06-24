@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Triad Bar
 
-## Getting Started
+> The world's first architecturally stratified chocolate. A Next.js rebuild of the original Triad Bar marketing site, ready to ship.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, Turbopack) + **React 19**
+- **Tailwind CSS v4** (PostCSS)
+- **motion** (animations) + **lucide-react** (icons)
+- **TypeScript** (strict)
+- **pnpm**
+
+## Local development
+
+Requires Node `26.3.1` (see `.node-version`).
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev          # http://localhost:3000
+pnpm build        # production build
+pnpm start        # serve the production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy to Vercel
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Push this repo to GitHub.
+2. Import it in [Vercel](https://vercel.com/new) — framework preset auto-detects as Next.js.
+3. Vercel respects `.node-version` and uses `pnpm` when a `pnpm-lock.yaml` is present.
+4. Set the production domain (default suggested: `triadbar.com`).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+No env vars or build config required.
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/
+  layout.tsx          Root layout, fonts, metadata
+  page.tsx            Single-page composition
+  globals.css         Tailwind v4 theme (obsidian + gold)
+  sitemap.ts          SEO sitemap
+  robots.ts           robots.txt
+  icon.svg            Brand favicon
+  components/
+    Nav.tsx           Fixed nav + mobile menu
+    Hero.tsx          TRIAD headline + "Begin the Ascent"
+    Stratum.tsx       Three Strata tabs (Apex / Core / Foundation)
+    Lab.tsx           "Anatomy of a Bite" + horizontal scroll cards
+    Builder.tsx       3-step pyramid builder
+    Manifesto.tsx     Eight Pillars of a Monolith
+    Vessel.tsx        "Not a wrapper. A reliquary."
+    Community.tsx     People's Pyramid voting (localStorage)
+    Footer.tsx
+lib/
+  data.ts             Layers, fillings, pillars, nav links
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content source
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All copy, image URLs, layer definitions, and the 8 manifesto pillars are extracted from the original site's JS bundle in `lib/data.ts`. Images are served from the project's CDN (`media.base44.com`) and whitelisted in `next.config.ts` under `images.remotePatterns`.
 
-## Deploy on Vercel
+## Performance notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- All images use `next/image` with `fill` + responsive `sizes` (WebP/AVIF, lazy-loaded, CLS-safe).
+- Hero image is `priority` for LCP.
+- Inter Tight + Playfair Display via `next/font/google` (self-hosted, no CLS).
+- Page is statically prerendered (`○ /`).

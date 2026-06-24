@@ -1,26 +1,54 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #1a1614;
+  --color-foreground: #fdfcfb;
+  --color-gold: #c9974c;
+  --color-gold-light: #d4a65e;
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-inter-tight);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #1a1614;
+  --foreground: #fdfcfb;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #1a1614;
+  color: #fdfcfb;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #c9974c;
+  color: #1a1614;
+}
+
+/* thin gold scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1614;
+}
+::-webkit-scrollbar-thumb {
+  background: #2c1810;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9974c;
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+.font-body {
+  font-family: var(--font-body), sans-serif;
 }
