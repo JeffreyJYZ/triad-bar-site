@@ -102,7 +102,7 @@ export default function Manifesto() {
 						</div>
 						<div>
 							<span className="text-[#FDFCFB]/25">Origin </span>
-							<span>Zürich, CH</span>
+							<span>Dubai, AE</span>
 						</div>
 						<div>
 							<span className="text-[#FDFCFB]/25">Status </span>

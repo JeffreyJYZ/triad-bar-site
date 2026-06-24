@@ -57,7 +57,7 @@ export default function Footer() {
 								+41 44 123 45 67
 							</span>
 							<span className="text-sm font-body font-light text-[#FDFCFB]/25">
-								Zürich, Switzerland
+								Dubai, UAE
 							</span>
 						</div>
 					</div>
