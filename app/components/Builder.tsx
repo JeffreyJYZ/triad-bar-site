@@ -5,12 +5,11 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { Check, ArrowRight } from "lucide-react";
 import { fillings, builderSteps, type Filling } from "@/lib/data";
-
-type Selection = Partial<Record<"apex" | "core" | "base", Filling>>;
+import { useSelection } from "./SelectionContext";
 
 export default function Builder() {
 	const [step, setStep] = useState(0);
-	const [selection, setSelection] = useState<Selection>({});
+	const { selection, setSelection } = useSelection();
 
 	const current = builderSteps[step];
 	const options = fillings[current.key];

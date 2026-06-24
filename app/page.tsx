@@ -6,10 +6,11 @@ import Vessel from "./components/Vessel";
 import Builder from "./components/Builder";
 import Manifesto from "./components/Manifesto";
 import Footer from "./components/Footer";
+import { SelectionProvider } from "./components/SelectionContext";
 
 export default function Page() {
 	return (
-		<>
+		<SelectionProvider>
 			<Nav />
 			<main className="flex-1">
 				<Hero />
@@ -20,6 +21,6 @@ export default function Page() {
 				<Vessel />
 			</main>
 			<Footer />
-		</>
+		</SelectionProvider>
 	);
 }

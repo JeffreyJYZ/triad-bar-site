@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import { vesselImageLeft } from "@/lib/data";
+import { vesselImageLeft, builderSteps } from "@/lib/data";
+import { useSelection } from "./SelectionContext";
 
 const stats = [
 	{ value: "80g", label: "Net Weight", color: "#C9974C" },
@@ -12,7 +13,18 @@ const stats = [
 	{ value: "0", label: "Plastic Used", color: "#4B5320" },
 ];
 
+function buildMailto(selection: ReturnType<typeof useSelection>["selection"]) {
+	const lines = builderSteps.map(
+		(s) => `- ${s.label}: ${selection[s.key]?.name ?? "(not selected)"}`,
+	);
+	const body = `Hello,\n\nI would like to order the following Triad configuration:\n\n${lines.join("\n")}\n\nThank you.`;
+	return `mailto:Yizhou6651@dubaicollege.org?subject=${encodeURIComponent("Triad Order Inquiry")}&body=${encodeURIComponent(body)}`;
+}
+
 export default function Vessel() {
+	const { selection } = useSelection();
+	const href = buildMailto(selection);
+
 	return (
 		<section id="vessel" className="relative py-24 md:py-40 px-6 md:px-10">
 			<div className="max-w-7xl mx-auto">
@@ -78,7 +90,7 @@ export default function Vessel() {
 						</div>
 
 						<a
-							href="mailto:Yizhou6651@dubaicollege.org?subject=Triad%20Order%20Inquiry"
+							href={href}
 							className="inline-flex items-center gap-3 px-8 py-4 bg-[#C9974C]/90 text-[#1A1614] text-[13px] font-body font-medium tracking-[0.15em] uppercase min-h-[56px] hover:bg-[#d4a65e] transition-colors"
 						>
 							Order Your Triad
