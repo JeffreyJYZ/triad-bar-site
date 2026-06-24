@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/data";
@@ -30,9 +31,17 @@ export default function Nav() {
 			<nav className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16 md:h-20">
 				<a
 					href="#top"
-					className="font-display text-2xl md:text-3xl tracking-[-0.08em] text-[#FDFCFB] hover:text-[#C9974C] transition-colors"
+					aria-label="Triad home"
+					className="block relative h-10 w-32 md:h-12 md:w-40 hover:opacity-80 transition-opacity"
 				>
-					TRIAD
+					<Image
+						src="/logo.png"
+						alt="Triad"
+						fill
+						sizes="(min-width: 768px) 160px, 128px"
+						className="object-contain object-left"
+						priority
+					/>
 				</a>
 
 				<ul className="hidden md:flex items-center gap-8">

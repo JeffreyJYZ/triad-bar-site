@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { navLinks } from "@/lib/data";
 
 export default function Footer() {
@@ -15,9 +16,15 @@ export default function Footer() {
 			<div className="max-w-7xl mx-auto">
 				<div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-16">
 					<div className="md:col-span-2">
-						<span className="font-display text-3xl md:text-4xl tracking-[-0.08em] text-[#FDFCFB] block mb-4">
-							TRIAD
-						</span>
+						<div className="relative h-12 w-40 md:h-14 md:w-48 mb-4">
+							<Image
+								src="/logo.png"
+								alt="Triad"
+								fill
+								sizes="(min-width: 768px) 192px, 160px"
+								className="object-contain object-left"
+							/>
+						</div>
 						<p className="text-sm font-body font-light text-[#FDFCFB]/30 leading-relaxed max-w-sm">
 							The world&apos;s first architecturally stratified
 							chocolate experience. Handcrafted in small batches.
