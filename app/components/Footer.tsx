@@ -16,15 +16,13 @@ export default function Footer() {
 			<div className="max-w-7xl mx-auto">
 				<div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-16">
 					<div className="md:col-span-2">
-						<div className="relative h-12 w-40 md:h-14 md:w-48 mb-4">
-							<Image
-								src="/logo.png"
-								alt="Triad"
-								fill
-								sizes="(min-width: 768px) 192px, 160px"
-								className="object-contain object-left"
-							/>
-						</div>
+						<Image
+							src="/logo.png"
+							alt="Triad"
+							width={140}
+							height={147}
+							className="h-20 w-auto md:h-24 mb-4"
+						/>
 						<p className="text-sm font-body font-light text-[#FDFCFB]/30 leading-relaxed max-w-sm">
 							The world&apos;s first architecturally stratified
 							chocolate experience. Handcrafted in small batches.

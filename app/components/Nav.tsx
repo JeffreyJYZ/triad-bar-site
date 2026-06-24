@@ -32,14 +32,14 @@ export default function Nav() {
 				<a
 					href="#top"
 					aria-label="Triad home"
-					className="block relative h-10 w-32 md:h-12 md:w-40 hover:opacity-80 transition-opacity"
+					className="block hover:opacity-80 transition-opacity"
 				>
 					<Image
 						src="/logo.png"
 						alt="Triad"
-						fill
-						sizes="(min-width: 768px) 160px, 128px"
-						className="object-contain object-left"
+						width={56}
+						height={59}
+						className="h-10 w-auto md:h-12"
 						priority
 					/>
 				</a>
