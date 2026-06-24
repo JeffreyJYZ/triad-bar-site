@@ -21,8 +21,8 @@ export default function Vessel() {
 						className="relative aspect-square overflow-hidden order-2 md:order-1"
 						initial={{ opacity: 0, x: -40 }}
 						whileInView={{ opacity: 1, x: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+						viewport={{ once: true, margin: "-50px" }}
+						transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
 					>
 						<Image
 							src={vesselImageLeft}
@@ -38,8 +38,8 @@ export default function Vessel() {
 						className="order-1 md:order-2"
 						initial={{ opacity: 0, y: 30 }}
 						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.8 }}
+						viewport={{ once: true, margin: "-50px" }}
+						transition={{ duration: 0.5 }}
 					>
 						<p className="text-[11px] font-body font-light tracking-[0.35em] uppercase text-[#C9974C]/60 mb-4">
 							The Vessel
@@ -77,7 +77,7 @@ export default function Vessel() {
 							))}
 						</div>
 
-						<span className="inline-flex items-center gap-3 px-8 py-4 bg-[#C9974C] text-[#1A1614] text-[13px] font-body font-medium tracking-[0.15em] uppercase min-h-[56px]">
+						<span className="inline-flex items-center gap-3 px-8 py-4 bg-[#C9974C]/90 text-[#1A1614] text-[13px] font-body font-medium tracking-[0.15em] uppercase min-h-[56px] cursor-default">
 							Coming Soon
 							<ArrowRight size={16} />
 						</span>
