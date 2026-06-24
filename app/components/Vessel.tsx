@@ -7,7 +7,7 @@ import { vesselImageLeft } from "@/lib/data";
 
 const stats = [
 	{ value: "80g", label: "Net Weight", color: "#C9974C" },
-	{ value: "€24", label: "Per Triad", color: "#FDFCFB" },
+	{ value: "AED 100", label: "Per Triad", color: "#FDFCFB" },
 	{ value: "48h", label: "Climate-Controlled Delivery", color: "#FDFCFB70" },
 	{ value: "0", label: "Plastic Used", color: "#4B5320" },
 ];
