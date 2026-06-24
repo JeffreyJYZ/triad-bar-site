@@ -5,7 +5,6 @@ import Lab from "./components/Lab";
 import Vessel from "./components/Vessel";
 import Builder from "./components/Builder";
 import Manifesto from "./components/Manifesto";
-import Community from "./components/Community";
 import Footer from "./components/Footer";
 
 export default function Page() {
@@ -19,7 +18,6 @@ export default function Page() {
 				<Builder />
 				<Manifesto />
 				<Vessel />
-				<Community />
 			</main>
 			<Footer />
 		</>

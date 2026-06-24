@@ -81,13 +81,6 @@ export const fillings: Record<"apex" | "core" | "base", Filling[]> = {
 			color: "#C9974C",
 			image: `${M}/47df75ad4_generated_1237f540.png`,
 		},
-		{
-			id: "berry-ganache",
-			name: "Dark Berry Ganache",
-			description: "Wild blackberry and 64% Peruvian dark chocolate",
-			color: "#7D2242",
-			image: `${M}/badec4138_generated_bb1b1d50.png`,
-		},
     {
       id: "pistachio",
       name: "Pistachio Mousse",
@@ -95,13 +88,13 @@ export const fillings: Record<"apex" | "core" | "base", Filling[]> = {
       color: "#4B5320",
       image: `${M}/1ca4351e1_generated_10daebd9.png`,
     },
-    {
-      id: "white-chocolate",
-      name: "White Chocolate",
-      description: "33% single-origin cocoa butter, Tahitian vanilla bean",
-      color: "#F5E6D3",
-      image: `${M}/99c508c61_generated_4a4ba360.png`,
-    },
+		{
+			id: "white-chocolate",
+			name: "White Chocolate",
+			description: "33% single-origin cocoa butter, Tahitian vanilla bean",
+			color: "#F5E6D3",
+			image: `https://static.vecteezy.com/system/resources/thumbnails/047/829/976/small/white-chocolate-on-transparent-background-free-png.png`,
+		},
   ],
   core: [
 		{
@@ -198,5 +191,4 @@ export const navLinks = [
 	{ label: "Build Yours", href: "#builder" },
 	{ label: "Spec", href: "#manifesto" },
 	{ label: "The Vessel", href: "#vessel" },
-	{ label: "Community", href: "#community" },
 ];
