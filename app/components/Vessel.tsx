@@ -77,10 +77,13 @@ export default function Vessel() {
 							))}
 						</div>
 
-						<span className="inline-flex items-center gap-3 px-8 py-4 bg-[#C9974C]/90 text-[#1A1614] text-[13px] font-body font-medium tracking-[0.15em] uppercase min-h-[56px] cursor-default">
+						<a
+							href="mailto:Yizhou6651@dubaicollege.org?subject=Triad%20Order%20Inquiry"
+							className="inline-flex items-center gap-3 px-8 py-4 bg-[#C9974C]/90 text-[#1A1614] text-[13px] font-body font-medium tracking-[0.15em] uppercase min-h-[56px] hover:bg-[#d4a65e] transition-colors"
+						>
 							Coming Soon
 							<ArrowRight size={16} />
-						</span>
+						</a>
 					</motion.div>
 				</div>
 			</div>
