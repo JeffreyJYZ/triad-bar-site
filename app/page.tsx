@@ -9,19 +9,19 @@ import Community from "./components/Community";
 import Footer from "./components/Footer";
 
 export default function Page() {
-  return (
-    <>
-      <Nav />
-      <main className="flex-1">
-        <Hero />
-        <Stratum />
-        <Lab />
-        <Builder />
-        <Manifesto />
-        <Vessel />
-        <Community />
-      </main>
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<Nav />
+			<main className="flex-1">
+				<Hero />
+				<Stratum />
+				<Lab />
+				<Builder />
+				<Manifesto />
+				<Vessel />
+				<Community />
+			</main>
+			<Footer />
+		</>
+	);
 }
