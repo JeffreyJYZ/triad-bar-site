@@ -51,7 +51,7 @@ export default function Footer() {
 						</span>
 						<div className="flex flex-col gap-3">
 							<span className="text-sm font-body font-light text-[#FDFCFB]/40">
-								hello@triadbar.com
+								Yizhou6651@dubaicollege.org
 							</span>
 							<span className="text-sm font-body font-light text-[#FDFCFB]/40">
 								+41 44 123 45 67
