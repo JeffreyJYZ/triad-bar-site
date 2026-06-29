@@ -28,7 +28,7 @@ export interface Pillar {
 
 export const heroImage = `/img/hero.png`;
 export const vesselImageLeft = `/img/vessel-left.png`;
-export const vesselImageRight = `/img/vessel.png`;
+export const vesselImageRight = `/img/vessel-left.png`;
 
 export const layers: Layer[] = [
 	{

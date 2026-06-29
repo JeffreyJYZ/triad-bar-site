@@ -9,22 +9,25 @@ import Builder from "./components/Builder";
 import Manifesto from "./components/Manifesto";
 import Footer from "./components/Footer";
 import { SelectionProvider } from "./components/SelectionContext";
+import ImageGate from "./components/ImageGate";
 
 export default function Page() {
 	return (
 		<SelectionProvider>
-			<Nav />
-			<main className="flex-1">
-				<Hero />
-				<Stratum />
-				<Lab />
-				<Builder />
-				<Manifesto />
-				<Vessel />
-				<Prices />
-				<GoldenTickets />
-			</main>
-			<Footer />
+			<ImageGate>
+				<Nav />
+				<main className="flex-1">
+					<Hero />
+					<Stratum />
+					<Lab />
+					<Builder />
+					<Manifesto />
+					<Vessel />
+					<Prices />
+					<GoldenTickets />
+				</main>
+				<Footer />
+			</ImageGate>
 		</SelectionProvider>
 	);
 }
