@@ -1,6 +1,7 @@
 {
 	"name": "triad-bar",
 	"version": "0.1.0",
+	"type": "module",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
@@ -22,6 +23,7 @@
 		"@types/react-dom": "^19",
 		"babel-plugin-react-compiler": "1.0.0",
 		"prettier": "^3.8.4",
+		"prettier-plugin-tailwindcss": "^0.8.0",
 		"tailwindcss": "^4",
 		"typescript": "^5"
 	}

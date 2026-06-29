@@ -39,16 +39,15 @@ app/
   globals.css         Tailwind v4 theme (obsidian + gold)
   sitemap.ts          SEO sitemap
   robots.ts           robots.txt
-  icon.svg            Brand favicon
+  icon.png            Brand favicon
   components/
     Nav.tsx           Fixed nav + mobile menu
     Hero.tsx          TRIAD headline + "Begin the Ascent"
     Stratum.tsx       Three Strata tabs (Apex / Core / Foundation)
     Lab.tsx           "Anatomy of a Bite" + horizontal scroll cards
-    Builder.tsx       3-step pyramid builder
+Builder.tsx       3-step pyramid builder
     Manifesto.tsx     Eight Pillars of a Monolith
     Vessel.tsx        "Not a wrapper. A reliquary."
-    Community.tsx     People's Pyramid voting (localStorage)
     Footer.tsx
 lib/
   data.ts             Layers, fillings, pillars, nav links
@@ -56,7 +55,7 @@ lib/
 
 ## Content source
 
-All copy, image URLs, layer definitions, and the 8 manifesto pillars are extracted from the original site's JS bundle in `lib/data.ts`. Images are served from the project's CDN (`media.base44.com`) and whitelisted in `next.config.ts` under `images.remotePatterns`.
+All copy, layer definitions, and the spec-sheet figures live in `lib/data.ts`. Product imagery is bundled locally under `public/img/`; the only remote host still whitelisted in `next.config.ts` is the placeholder white-chocolate PNG on `static.vecteezy.com` — swap it for an owned render before launch.
 
 ## Performance notes
 

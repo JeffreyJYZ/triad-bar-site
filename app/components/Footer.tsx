@@ -5,32 +5,32 @@ import { navLinks } from "@/lib/data";
 
 export default function Footer() {
 	return (
-		<footer className="relative py-16 md:py-24 px-6 md:px-10 border-t border-[#FDFCFB]/5">
+		<footer className="border-foreground/5 relative border-t px-6 py-16 md:px-10 md:py-24">
 			<div
-				className="absolute top-0 left-0 right-0 h-16 bg-[#1A1614]"
+				className="bg-background absolute top-0 right-0 left-0 h-16"
 				style={{
 					clipPath: "polygon(0 0, 100% 0, 100% 100%)",
 					marginTop: "-64px",
 				}}
 			/>
-			<div className="max-w-7xl mx-auto">
-				<div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-16">
+			<div className="mx-auto max-w-7xl">
+				<div className="grid grid-cols-1 gap-10 md:grid-cols-4 md:gap-16">
 					<div className="md:col-span-2">
 						<Image
 							src="/logo.png"
 							alt="Triad"
 							width={280}
 							height={294}
-							className="h-40 w-auto md:h-48 mb-4"
+							className="mb-4 h-40 w-auto md:h-48"
 						/>
-						<p className="text-sm font-body font-light text-[#FDFCFB]/30 leading-relaxed max-w-sm">
+						<p className="font-body text-foreground/30 max-w-sm text-sm leading-relaxed font-light">
 							The world&apos;s first architecturally stratified
 							chocolate experience. Handcrafted in small batches.
 							Delivered in climate-controlled vessels.
 						</p>
 					</div>
 					<div>
-						<span className="block text-[10px] font-body tracking-[0.25em] uppercase text-[#C9974C]/60 mb-4">
+						<span className="font-body text-gold/60 mb-4 block text-[10px] tracking-[0.25em] uppercase">
 							Explore
 						</span>
 						<div className="flex flex-col gap-3">
@@ -38,7 +38,7 @@ export default function Footer() {
 								<a
 									key={l.href}
 									href={l.href}
-									className="text-sm font-body font-light text-[#FDFCFB]/40 hover:text-[#C9974C] transition-colors"
+									className="font-body text-foreground/40 hover:text-gold text-sm font-light transition-colors"
 								>
 									{l.label}
 								</a>
@@ -46,31 +46,31 @@ export default function Footer() {
 						</div>
 					</div>
 					<div>
-						<span className="block text-[10px] font-body tracking-[0.25em] uppercase text-[#C9974C]/60 mb-4">
+						<span className="font-body text-gold/60 mb-4 block text-[10px] tracking-[0.25em] uppercase">
 							Contact
 						</span>
 						<div className="flex flex-col gap-3">
-							<span className="text-sm font-body font-light text-[#FDFCFB]/40">
+							<span className="font-body text-foreground/40 text-sm font-light">
 								Yizhou6651@dubaicollege.org
 							</span>
-							<span className="text-sm font-body font-light text-[#FDFCFB]/25">
+							<span className="font-body text-foreground/25 text-sm font-light">
 								Dubai, UAE
 							</span>
 						</div>
 					</div>
 				</div>
-				<div className="mt-16 pt-8 border-t border-[#FDFCFB]/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-					<span className="text-[11px] font-body text-[#FDFCFB]/20">
-						© 2026 Triad Confections AG. All rights reserved.
+				<div className="border-foreground/5 mt-16 flex flex-col items-center justify-between gap-4 border-t pt-8 sm:flex-row">
+					<span className="font-body text-foreground/20 text-[11px]">
+						© 2026 Triad Confections LLC. All rights reserved.
 					</span>
 					<div className="flex items-center gap-6">
-						<span className="text-[11px] font-body text-[#FDFCFB]/20">
+						<span className="font-body text-foreground/20 text-[11px]">
 							Privacy Policy
 						</span>
-						<span className="text-[11px] font-body text-[#FDFCFB]/20">
+						<span className="font-body text-foreground/20 text-[11px]">
 							Terms of Service
 						</span>
-						<span className="text-[11px] font-body text-[#FDFCFB]/20">
+						<span className="font-body text-foreground/20 text-[11px]">
 							Shipping Info
 						</span>
 					</div>

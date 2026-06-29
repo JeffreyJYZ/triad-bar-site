@@ -1,101 +1,74 @@
 "use client";
 
-import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { labCards } from "@/lib/data";
 
-const M = "https://media.base44.com/images/public/6a3a3ae86be07351bf17fb54";
-const snapImg = `${M}/99c508c61_generated_4a4ba360.png`;
-const vesselImg = `${M}/32fe9de09_generated_0117a4e6.png`;
+const snapImg = `/img/dark-85.png`;
+const vesselImg = `/img/vessel-left.png`;
 
 export default function Lab() {
-	const trackRef = useRef<HTMLDivElement>(null);
-
-	useEffect(() => {
-		const el = trackRef.current;
-		if (!el) return;
-		const onWheel = (e: WheelEvent) => {
-			if (e.deltaY === 0) return;
-			if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
-			if (el.scrollWidth <= el.clientWidth) return;
-			const atStart = el.scrollLeft <= 0;
-			const atEnd =
-				el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
-			if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd))
-				return;
-			e.preventDefault();
-				el.scrollBy({ left: e.deltaY, behavior: "smooth" });
-		};
-		el.addEventListener("wheel", onWheel, { passive: false });
-		return () => el.removeEventListener("wheel", onWheel);
-	}, []);
-
 	return (
-		<section
-			id="lab"
-			className="relative py-24 md:py-40"
-		>
-			<div className="px-6 md:px-10 max-w-7xl mx-auto mb-16 md:mb-24">
+		<section id="lab" className="relative py-24 md:py-40">
+			<div className="mx-auto mb-16 max-w-7xl px-6 md:mb-24 md:px-10">
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, margin: "-100px" }}
 					transition={{ duration: 0.8 }}
 				>
-					<p className="text-[11px] font-body font-light tracking-[0.35em] uppercase text-[#C9974C]/60 mb-4">
+					<p className="font-body text-gold/60 mb-4 text-[11px] font-light tracking-[0.35em] uppercase">
 						The Confectionary Lab
 					</p>
-					<h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-[#FDFCFB] tracking-[-0.05em] leading-[0.95]">
+					<h2 className="font-display text-foreground text-4xl leading-[0.95] font-bold tracking-tighter md:text-6xl lg:text-7xl">
 						Anatomy of
 						<br />a Bite.
 					</h2>
 				</motion.div>
 			</div>
 
-			<div
-				ref={trackRef}
-				className="flex gap-6 md:gap-10 px-6 md:px-10 pb-8 overflow-x-auto cursor-grab active:cursor-grabbing [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-			>
+<div
+			className="flex scrollbar-none gap-6 overflow-x-auto px-6 pb-8 md:gap-10 md:px-10"
+		>
 				{labCards.map((card, i) => (
 					<motion.div
 						key={card.number}
-						className="flex-shrink-0 snap-start w-[85vw] sm:w-[60vw] md:w-[40vw] lg:w-[30vw] bg-[#1A1614] border border-[#FDFCFB]/8 p-8 md:p-10 relative group"
+						className="bg-background border-foreground/8 group relative w-[85vw] shrink-0 snap-start border p-8 sm:w-[60vw] md:w-[40vw] md:p-10 lg:w-[30vw]"
 						initial={{ opacity: 0, y: 40 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true, margin: "-50px" }}
 						transition={{ duration: 0.6, delay: i * 0.1 }}
 					>
-						<span className="text-[80px] md:text-[100px] font-display font-bold text-[#FDFCFB]/[0.03] absolute top-4 right-6 leading-none select-none">
+						<span className="font-display text-foreground/3 absolute top-4 right-6 text-[80px] leading-none font-bold select-none md:text-[100px]">
 							{card.number}
 						</span>
 						<div className="mb-8">
-							<span className="text-[10px] font-body tracking-[0.25em] uppercase text-[#C9974C]/50">
+							<span className="font-body text-gold/50 text-[10px] tracking-[0.25em] uppercase">
 								Phase {card.number}
 							</span>
 						</div>
-						<h3 className="font-display text-2xl md:text-3xl font-bold text-[#FDFCFB] tracking-[-0.03em] mb-3">
+						<h3 className="font-display text-foreground mb-3 text-2xl font-bold tracking-[-0.03em] md:text-3xl">
 							{card.title}
 						</h3>
-						<div className="flex items-baseline gap-2 mb-6">
-							<span className="text-3xl md:text-4xl font-display font-bold text-[#C9974C]">
+						<div className="mb-6 flex items-baseline gap-2">
+							<span className="font-display text-gold text-3xl font-bold md:text-4xl">
 								{card.stat}
 							</span>
-							<span className="text-[10px] font-body tracking-[0.15em] uppercase text-[#FDFCFB]/30">
+							<span className="font-body text-foreground/30 text-[10px] tracking-[0.15em] uppercase">
 								{card.statLabel}
 							</span>
 						</div>
-						<p className="text-sm font-body font-light text-[#FDFCFB]/40 leading-[1.7]">
-							{card.description}
-						</p>
-						<div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#C9974C] to-transparent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700" />
+<p className="font-body text-foreground/70 text-sm leading-[1.7] font-light">
+						{card.description}
+					</p>
+						<div className="from-gold absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-linear-to-r to-transparent transition-transform duration-700 group-hover:scale-x-100" />
 					</motion.div>
 				))}
 			</div>
 
-			<div className="max-w-7xl mx-auto px-6 md:px-10 mt-20 md:mt-32 grid grid-cols-1 md:grid-cols-2 gap-6">
+			<div className="mx-auto mt-20 grid max-w-7xl grid-cols-1 gap-6 px-6 md:mt-32 md:grid-cols-2 md:px-10">
 				<motion.div
-					className="relative aspect-[4/3] overflow-hidden"
+					className="relative aspect-4/3 overflow-hidden"
 					initial={{ opacity: 0, x: -30 }}
 					whileInView={{ opacity: 1, x: 0 }}
 					viewport={{ once: true }}
@@ -108,13 +81,13 @@ export default function Lab() {
 						sizes="(min-width: 768px) 50vw, 100vw"
 						className="object-cover"
 					/>
-					<div className="absolute inset-0 bg-gradient-to-t from-[#1A1614]/70 to-transparent" />
-					<span className="absolute bottom-4 left-4 text-[10px] font-body tracking-[0.2em] uppercase text-[#FDFCFB]/40">
-						The Snap — 4,200 Hz
+					<div className="from-background/70 absolute inset-0 bg-linear-to-t to-transparent" />
+					<span className="font-body text-foreground/40 absolute bottom-4 left-4 text-[10px] tracking-[0.2em] uppercase">
+						The Snap — Clean Break
 					</span>
 				</motion.div>
 				<motion.div
-					className="relative aspect-[4/3] overflow-hidden"
+					className="relative aspect-4/3 overflow-hidden"
 					initial={{ opacity: 0, x: 30 }}
 					whileInView={{ opacity: 1, x: 0 }}
 					viewport={{ once: true }}
@@ -127,8 +100,8 @@ export default function Lab() {
 						sizes="(min-width: 768px) 50vw, 100vw"
 						className="object-cover"
 					/>
-					<div className="absolute inset-0 bg-gradient-to-t from-[#1A1614]/70 to-transparent" />
-					<span className="absolute bottom-4 left-4 text-[10px] font-body tracking-[0.2em] uppercase text-[#FDFCFB]/40">
+					<div className="from-background/70 absolute inset-0 bg-linear-to-t to-transparent" />
+					<span className="font-body text-foreground/40 absolute bottom-4 left-4 text-[10px] tracking-[0.2em] uppercase">
 						The Vessel — Matte Black
 					</span>
 				</motion.div>

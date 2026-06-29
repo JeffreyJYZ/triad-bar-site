@@ -20,8 +20,8 @@ export default function Builder() {
 		setSelection((s) => ({ ...s, [current.key]: f }));
 
 	return (
-		<section id="builder" className="relative py-24 md:py-40 px-6 md:px-10">
-			<div className="max-w-7xl mx-auto">
+		<section id="builder" className="relative px-6 py-24 md:px-10 md:py-40">
+			<div className="mx-auto max-w-7xl">
 				<motion.div
 					className="mb-16 md:mb-24"
 					initial={{ opacity: 0, y: 30 }}
@@ -29,50 +29,52 @@ export default function Builder() {
 					viewport={{ once: true, margin: "-100px" }}
 					transition={{ duration: 0.8 }}
 				>
-					<p className="text-[11px] font-body font-light tracking-[0.35em] uppercase text-[#C9974C]/60 mb-4">
+					<p className="font-body text-gold/60 mb-4 text-[11px] font-light tracking-[0.35em] uppercase">
 						The Pyramid Builder
 					</p>
-					<h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-[#FDFCFB] tracking-[-0.05em] leading-[0.95]">
+					<h2 className="font-display text-foreground text-4xl leading-[0.95] font-bold tracking-tighter md:text-6xl lg:text-7xl">
 						Construct
 						<br />
 						Your Triad.
 					</h2>
 				</motion.div>
 
-				<div className="flex items-center gap-0 mb-12 md:mb-16">
+				<div className="mb-12 flex items-center gap-0 md:mb-16">
 					{builderSteps.map((p, g) => (
 						<div key={p.key} className="contents">
 							<button
-								onClick={() => g <= step && setStep(g)}
-								className={`flex items-center gap-3 py-3 px-4 transition-all duration-300 ${
+								onClick={() => {
+							if (g <= step) setStep(g);
+						}}
+								className={`flex items-center gap-3 px-4 py-3 transition-all duration-300 ${
 									g === step
 										? "opacity-100"
 										: g < step
-											? "opacity-60 cursor-pointer"
-											: "opacity-20 cursor-default"
+											? "cursor-pointer opacity-60"
+											: "cursor-default opacity-20"
 								}`}
 								disabled={g > step}
 							>
 								<div
-									className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-body border transition-all duration-300 ${
+									className={`font-body flex h-8 w-8 items-center justify-center rounded-full border text-xs transition-all duration-300 ${
 										g < step
-											? "bg-[#C9974C] border-[#C9974C] text-[#1A1614]"
+											? "bg-gold border-gold text-background"
 											: g === step
-												? "border-[#C9974C] text-[#C9974C]"
-												: "border-[#FDFCFB]/20 text-[#FDFCFB]/20"
+												? "border-gold text-gold"
+												: "border-foreground/20 text-foreground/20"
 									}`}
 								>
 									{g < step ? <Check size={14} /> : g + 1}
 								</div>
-								<div className="hidden sm:block text-left">
-									<span className="block text-[10px] font-body tracking-[0.15em] uppercase text-[#FDFCFB]/30">
+								<div className="hidden text-left sm:block">
+									<span className="font-body text-foreground/30 block text-[10px] tracking-[0.15em] uppercase">
 										{p.subtitle}
 									</span>
 									<span
-										className={`block text-sm font-body ${
+										className={`font-body block text-sm ${
 											g === step
-												? "text-[#FDFCFB]"
-												: "text-[#FDFCFB]/50"
+												? "text-foreground"
+												: "text-foreground/50"
 										}`}
 									>
 										{p.label}
@@ -81,10 +83,10 @@ export default function Builder() {
 							</button>
 							{g < builderSteps.length - 1 && (
 								<div
-									className={`flex-1 h-px mx-2 transition-colors duration-500 ${
+									className={`mx-2 h-px flex-1 transition-colors duration-500 ${
 										g < step
-											? "bg-[#C9974C]/40"
-											: "bg-[#FDFCFB]/10"
+											? "bg-gold/40"
+											: "bg-foreground/10"
 									}`}
 								/>
 							)}
@@ -95,7 +97,7 @@ export default function Builder() {
 				<AnimatePresence mode="wait">
 					<motion.div
 						key={current.key}
-						className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6"
+						className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6"
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: -20 }}
@@ -107,15 +109,15 @@ export default function Builder() {
 								<motion.button
 									key={p.id}
 									onClick={() => pick(p)}
-									className={`relative text-left p-0 overflow-hidden border transition-all duration-500 group ${
+									className={`group relative overflow-hidden border p-0 text-left transition-all duration-500 ${
 										selected
-											? "border-[#C9974C] ring-1 ring-[#C9974C]/30"
-											: "border-[#FDFCFB]/8 hover:border-[#FDFCFB]/20"
+											? "border-gold ring-gold/30 ring-1"
+											: "border-foreground/8 hover:border-foreground/20"
 									}`}
 									whileHover={{ scale: 1.01 }}
 									whileTap={{ scale: 0.99 }}
 								>
-									<div className="aspect-[4/3] relative overflow-hidden">
+									<div className="relative aspect-4/3 overflow-hidden">
 										<Image
 											src={p.image}
 											alt={`Macro texture of ${p.name}`}
@@ -123,10 +125,10 @@ export default function Builder() {
 											sizes="(min-width: 768px) 33vw, 100vw"
 											className="object-cover transition-transform duration-700 group-hover:scale-105"
 										/>
-										<div className="absolute inset-0 bg-gradient-to-t from-[#1A1614] via-[#1A1614]/40 to-transparent" />
+										<div className="from-background via-background/40 absolute inset-0 bg-linear-to-t to-transparent" />
 										{selected && (
 											<motion.div
-												className="absolute top-4 right-4 w-8 h-8 bg-[#C9974C] rounded-full flex items-center justify-center"
+												className="bg-gold absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full"
 												initial={{ scale: 0 }}
 												animate={{ scale: 1 }}
 												transition={{
@@ -137,18 +139,18 @@ export default function Builder() {
 											>
 												<Check
 													size={14}
-													className="text-[#1A1614]"
+													className="text-background"
 												/>
 											</motion.div>
 										)}
 									</div>
 									<div className="p-5 md:p-6">
-										<h4 className="font-display text-lg md:text-xl font-bold text-[#FDFCFB] tracking-[-0.02em] mb-1">
+										<h4 className="font-display text-foreground mb-1 text-lg font-bold tracking-[-0.02em] md:text-xl">
 											{p.name}
 										</h4>
-										<p className="text-xs font-body font-light text-[#FDFCFB]/40 leading-relaxed">
-											{p.description}
-										</p>
+<p className="font-body text-foreground/70 text-xs leading-relaxed font-light">
+										{p.description}
+									</p>
 									</div>
 								</motion.button>
 							);
@@ -156,10 +158,10 @@ export default function Builder() {
 					</motion.div>
 				</AnimatePresence>
 
-				<div className="flex items-center justify-between mt-10 md:mt-14">
+				<div className="mt-10 flex items-center justify-between md:mt-14">
 					<button
 						onClick={() => setStep((p) => Math.max(0, p - 1))}
-						className={`text-sm font-body tracking-[0.1em] uppercase text-[#FDFCFB]/40 hover:text-[#FDFCFB]/70 transition-colors min-h-[56px] px-6 ${
+						className={`font-body text-foreground/40 hover:text-foreground/70 min-h-14 px-6 text-sm tracking-widest uppercase transition-colors ${
 							step === 0 ? "invisible" : ""
 						}`}
 					>
@@ -168,7 +170,7 @@ export default function Builder() {
 					{allChosen ? (
 						<a
 							href="#vessel"
-							className="inline-flex items-center gap-3 px-8 py-4 bg-[#C9974C] text-[#1A1614] text-[13px] font-body font-medium tracking-[0.15em] uppercase hover:bg-[#d4a65e] transition-all duration-300 min-h-[56px]"
+							className="bg-gold text-background font-body hover:bg-gold-light inline-flex min-h-14 items-center gap-3 px-8 py-4 text-[13px] font-medium tracking-[0.15em] uppercase transition-all duration-300"
 						>
 							Complete Your Triad
 							<ArrowRight size={16} />
@@ -178,10 +180,10 @@ export default function Builder() {
 							onClick={() =>
 								chosen && setStep((p) => Math.min(2, p + 1))
 							}
-							className={`px-8 py-4 text-[13px] font-body font-medium tracking-[0.15em] uppercase min-h-[56px] transition-all duration-300 ${
+							className={`font-body min-h-14 px-8 py-4 text-[13px] font-medium tracking-[0.15em] uppercase transition-all duration-300 ${
 								chosen
-									? "bg-[#C9974C] text-[#1A1614] hover:bg-[#d4a65e]"
-									: "bg-[#FDFCFB]/5 text-[#FDFCFB]/20 cursor-not-allowed"
+									? "bg-gold text-background hover:bg-gold-light"
+									: "bg-foreground/5 text-foreground/20 cursor-not-allowed"
 							}`}
 							disabled={!chosen}
 						>
@@ -192,32 +194,32 @@ export default function Builder() {
 
 				{(selection.base || selection.core || selection.apex) && (
 					<motion.div
-						className="mt-12 md:mt-16 pt-8 border-t border-[#FDFCFB]/8"
+						className="border-foreground/8 mt-12 border-t pt-8 md:mt-16"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ duration: 0.5 }}
 					>
-						<p className="text-[10px] font-body tracking-[0.25em] uppercase text-[#FDFCFB]/30 mb-4">
+						<p className="font-body text-foreground/30 mb-4 text-[10px] tracking-[0.25em] uppercase">
 							Your Construction
 						</p>
-						<div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+						<div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
 							{builderSteps.map((p) => (
 								<div
 									key={p.key}
 									className="flex items-center gap-3"
 								>
 									<div
-										className={`w-3 h-3 rounded-full ${
+										className={`h-3 w-3 rounded-full ${
 											selection[p.key]
-												? "bg-[#C9974C]"
-												: "bg-[#FDFCFB]/10"
+												? "bg-gold"
+												: "bg-foreground/10"
 										}`}
 									/>
 									<div>
-										<span className="block text-[10px] font-body tracking-[0.15em] uppercase text-[#FDFCFB]/30">
+										<span className="font-body text-foreground/30 block text-[10px] tracking-[0.15em] uppercase">
 											{p.subtitle}
 										</span>
-										<span className="text-sm font-body text-[#FDFCFB]/70">
+										<span className="font-body text-foreground/70 text-sm">
 											{selection[p.key]?.name ??
 												"Not selected"}
 										</span>

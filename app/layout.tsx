@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter_Tight } from "next/font/google";
 import "./globals.css";
+import MotionProvider from "./components/MotionProvider";
 
 const playfair = Playfair_Display({
 	variable: "--font-playfair",
@@ -38,24 +39,33 @@ export const metadata: Metadata = {
 		title: "Triad Bar",
 		description:
 			"An architectural, multi-stratified chocolate experience allowing you to custom-build your own artisan pyramid bar, one decadent layer at a time.",
-		images: [
-			{
-				url: "https://triad-bar.vercel.app/og.png",
-				width: 1200,
-				height: 630,
-				alt: "Triad Bar — The world's first architecturally stratified chocolate",
-			},
-		],
 	},
 	twitter: {
 		card: "summary_large_image",
 		title: "Triad Bar",
 		description:
 			"An architectural, multi-stratified chocolate experience allowing you to custom-build your own artisan pyramid bar, one decadent layer at a time.",
-		images: ["https://triad-bar.vercel.app/og.png"],
 	},
 	alternates: { canonical: "https://triad-bar.vercel.app" },
 	robots: { index: true, follow: true },
+};
+
+const productJsonLd = {
+	"@context": "https://schema.org",
+	"@type": "Product",
+	name: "Triad Bar",
+	description:
+		"Architecturally stratified three-layer pyramid chocolate bar. Single-origin cacao, custom-built fillings.",
+	brand: { "@type": "Brand", name: "Triad Confections" },
+	category: "Chocolate",
+	image: ["https://triad-bar.vercel.app/img/hero.png"],
+	offers: {
+		"@type": "Offer",
+		price: "100",
+		priceCurrency: "AED",
+		availability: "https://schema.org/PreOrder",
+		url: "https://triad-bar.vercel.app/#vessel",
+	},
 };
 
 export default function RootLayout({
@@ -68,8 +78,14 @@ export default function RootLayout({
 			lang="en"
 			className={`${playfair.variable} ${interTight.variable} h-full antialiased`}
 		>
-			<body className="min-h-full flex flex-col bg-[#1A1614] text-[#FDFCFB] font-body">
-				{children}
+			<body className="font-body bg-background text-foreground flex min-h-full flex-col">
+				<MotionProvider>{children}</MotionProvider>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify(productJsonLd),
+					}}
+				/>
 			</body>
 		</html>
 	);

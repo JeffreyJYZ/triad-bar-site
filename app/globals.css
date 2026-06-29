@@ -9,11 +9,6 @@
 	--font-body: var(--font-inter-tight);
 }
 
-:root {
-	--background: #1a1614;
-	--foreground: #fdfcfb;
-}
-
 html {
 	scroll-behavior: smooth;
 }
@@ -29,6 +24,13 @@ body {
 ::selection {
 	background: #c9974c;
 	color: #1a1614;
+}
+
+/* visible keyboard focus */
+:focus-visible {
+	outline: 2px solid #c9974c;
+	outline-offset: 3px;
+	border-radius: 1px;
 }
 
 /* thin gold scrollbar */
@@ -51,4 +53,18 @@ body {
 }
 .font-body {
 	font-family: var(--font-body), sans-serif;
+}
+
+/* respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
 }

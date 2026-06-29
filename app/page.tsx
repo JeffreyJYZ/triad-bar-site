@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import Stratum from "./components/Stratum";
 import Lab from "./components/Lab";
 import Vessel from "./components/Vessel";
+import Prices from "./components/Prices";
 import Builder from "./components/Builder";
 import Manifesto from "./components/Manifesto";
 import Footer from "./components/Footer";
@@ -19,6 +20,7 @@ export default function Page() {
 				<Builder />
 				<Manifesto />
 				<Vessel />
+				<Prices />
 			</main>
 			<Footer />
 		</SelectionProvider>

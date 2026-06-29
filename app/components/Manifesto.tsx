@@ -45,7 +45,7 @@ const specs = [
 	{
 		group: "Logistics",
 		rows: [
-			{ label: "Shelf Life", value: "9", unit: "months" },
+			{ label: "Shelf Life", value: "6–8", unit: "weeks (refrigerated)" },
 			{ label: "Lead Time", value: "48", unit: "h" },
 			{ label: "Vessel Material", value: "Washi", unit: "JP" },
 			{ label: "Vessel Finish", value: "Matte", unit: "black" },
@@ -69,70 +69,70 @@ export default function Manifesto() {
 	return (
 		<section
 			id="manifesto"
-			className="relative py-24 md:py-40 px-6 md:px-10 overflow-hidden"
+			className="relative overflow-hidden px-6 py-24 md:px-10 md:py-40"
 		>
-			<div className="max-w-7xl mx-auto relative">
+			<div className="relative mx-auto max-w-7xl">
 				<motion.div
-					className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6"
+					className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between"
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, margin: "-100px" }}
 					transition={{ duration: 0.8 }}
 				>
 					<div>
-						<p className="text-[11px] font-body font-light tracking-[0.35em] uppercase text-[#C9974C]/60 mb-4">
+						<p className="font-body text-gold/60 mb-4 text-[11px] font-light tracking-[0.35em] uppercase">
 							Technical Specification
 						</p>
-						<h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-[#FDFCFB] tracking-[-0.05em] leading-[0.95]">
+						<h2 className="font-display text-foreground text-4xl leading-[0.95] font-bold tracking-tighter md:text-6xl lg:text-7xl">
 							Spec
 							<br />
 							Sheet.
 						</h2>
 					</div>
-					<div className="md:text-right font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-[#FDFCFB]/40 leading-[1.8]">
+					<div className="text-foreground/40 font-mono text-[10px] leading-[1.8] tracking-[0.18em] uppercase md:text-right md:text-[11px]">
 						<div>
-							<span className="text-[#FDFCFB]/25">Model </span>
-							<span className="text-[#C9974C]">
-								TRIAD—01 / Rev. C
-							</span>
+							<span className="text-foreground/25">Model </span>
+							<span className="text-gold">TRIAD—01 / Rev. C</span>
 						</div>
 						<div>
-							<span className="text-[#FDFCFB]/25">Issued </span>
+							<span className="text-foreground/25">Issued </span>
 							<span>2026 · Q2</span>
 						</div>
 						<div>
-							<span className="text-[#FDFCFB]/25">Origin </span>
+							<span className="text-foreground/25">Origin </span>
 							<span>Dubai, AE</span>
 						</div>
 						<div>
-							<span className="text-[#FDFCFB]/25">Status </span>
-							<span className="text-[#4B5320]">● RELEASED</span>
+							<span className="text-foreground/25">Status </span>
+							<span className="text-[#4B5320]">
+								● LIMITED RUN
+							</span>
 						</div>
 					</div>
 				</motion.div>
 
 				<motion.div
-					className="border border-[#FDFCFB]/10 bg-[#1A1614]"
+					className="border-foreground/10 bg-background border"
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, margin: "-50px" }}
 					transition={{ duration: 0.8, delay: 0.1 }}
 				>
-					<div className="grid grid-cols-1 md:grid-cols-3 border-b border-[#FDFCFB]/10">
+					<div className="border-foreground/10 grid grid-cols-1 border-b md:grid-cols-3">
 						{specs.slice(0, 3).map((g, gi) => (
 							<div
 								key={g.group}
 								className={`p-6 md:p-8 ${
 									gi < 2
-										? "md:border-r border-b md:border-b-0 border-[#FDFCFB]/10"
+										? "border-foreground/10 border-b md:border-r md:border-b-0"
 										: ""
 								}`}
 							>
-								<div className="flex items-center justify-between mb-5 pb-3 border-b border-[#FDFCFB]/10">
-									<span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#C9974C]/70">
+								<div className="border-foreground/10 mb-5 flex items-center justify-between border-b pb-3">
+									<span className="text-gold/70 font-mono text-[10px] tracking-[0.25em] uppercase">
 										§ {String(gi + 1).padStart(2, "0")}
 									</span>
-									<span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#FDFCFB]/40">
+									<span className="text-foreground/40 font-mono text-[10px] tracking-[0.25em] uppercase">
 										{g.group}
 									</span>
 								</div>
@@ -142,12 +142,12 @@ export default function Manifesto() {
 											key={r.label}
 											className="flex items-baseline justify-between gap-4"
 										>
-											<dt className="text-[11px] font-body font-light text-[#FDFCFB]/45 leading-tight">
+											<dt className="font-body text-foreground/45 text-[11px] leading-tight font-light">
 												{r.label}
 											</dt>
-											<dd className="flex items-baseline gap-1.5 font-mono text-[12px] md:text-[13px] text-[#FDFCFB] whitespace-nowrap">
+											<dd className="text-foreground flex items-baseline gap-1.5 font-mono text-[12px] whitespace-nowrap md:text-[13px]">
 												<span>{r.value}</span>
-												<span className="text-[9px] tracking-[0.15em] uppercase text-[#FDFCFB]/30">
+												<span className="text-foreground/30 text-[9px] tracking-[0.15em] uppercase">
 													{r.unit}
 												</span>
 											</dd>
@@ -164,15 +164,15 @@ export default function Manifesto() {
 								key={g.group}
 								className={`p-6 md:p-8 ${
 									gi < 2
-										? "md:border-r border-b md:border-b-0 border-[#FDFCFB]/10"
+										? "border-foreground/10 border-b md:border-r md:border-b-0"
 										: ""
 								}`}
 							>
-								<div className="flex items-center justify-between mb-5 pb-3 border-b border-[#FDFCFB]/10">
-									<span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#C9974C]/70">
+								<div className="border-foreground/10 mb-5 flex items-center justify-between border-b pb-3">
+									<span className="text-gold/70 font-mono text-[10px] tracking-[0.25em] uppercase">
 										§ {String(gi + 4).padStart(2, "0")}
 									</span>
-									<span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#FDFCFB]/40">
+									<span className="text-foreground/40 font-mono text-[10px] tracking-[0.25em] uppercase">
 										{g.group}
 									</span>
 								</div>
@@ -182,12 +182,12 @@ export default function Manifesto() {
 											key={r.label}
 											className="flex items-baseline justify-between gap-4"
 										>
-											<dt className="text-[11px] font-body font-light text-[#FDFCFB]/45 leading-tight">
+											<dt className="font-body text-foreground/45 text-[11px] leading-tight font-light">
 												{r.label}
 											</dt>
-											<dd className="flex items-baseline gap-1.5 font-mono text-[12px] md:text-[13px] text-[#FDFCFB] whitespace-nowrap">
+											<dd className="text-foreground flex items-baseline gap-1.5 font-mono text-[12px] whitespace-nowrap md:text-[13px]">
 												<span>{r.value}</span>
-												<span className="text-[9px] tracking-[0.15em] uppercase text-[#FDFCFB]/30">
+												<span className="text-foreground/30 text-[9px] tracking-[0.15em] uppercase">
 													{r.unit}
 												</span>
 											</dd>
@@ -200,22 +200,22 @@ export default function Manifesto() {
 				</motion.div>
 
 				<motion.div
-					className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 font-mono text-[10px] tracking-[0.18em] uppercase text-[#FDFCFB]/30"
+					className="text-foreground/30 mt-6 flex flex-col items-start justify-between gap-3 font-mono text-[10px] tracking-[0.18em] uppercase sm:flex-row sm:items-center"
 					initial={{ opacity: 0 }}
 					whileInView={{ opacity: 1 }}
 					viewport={{ once: true }}
 					transition={{ duration: 0.8, delay: 0.3 }}
 				>
 					<span>
-						<span className="text-[#FDFCFB]/20">Drawn </span>
+						<span className="text-foreground/20">Drawn </span>
 						<span>2026-04-12</span>
 					</span>
 					<span>
-						<span className="text-[#FDFCFB]/20">Approved </span>
-						<span className="text-[#C9974C]/60">M. Hauri / QC</span>
+						<span className="text-foreground/20">Approved </span>
+						<span className="text-gold/60">QC HOLD</span>
 					</span>
 					<span>
-						<span className="text-[#FDFCFB]/20">Sheet </span>
+						<span className="text-foreground/20">Sheet </span>
 						<span>01 / 01</span>
 					</span>
 				</motion.div>
