@@ -192,4 +192,5 @@ export const navLinks = [
 	{ label: "Spec", href: "#manifesto" },
 	{ label: "The Vessel", href: "#vessel" },
 	{ label: "Prices", href: "#prices" },
+	{ label: "Golden Tickets", href: "#tickets" },
 ];
