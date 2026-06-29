@@ -41,7 +41,7 @@ export const layers: Layer[] = [
 		cacao: "33%",
 		snap: "Soft",
 		color: "#F5E6D3",
-		image: `/img/core.png`,
+		image: `/img/white-chocolate.png`,
 	},
 	{
 		id: "middle",
@@ -92,7 +92,7 @@ export const fillings: Record<"apex" | "core" | "base", Filling[]> = {
 			description:
 				"33% single-origin cocoa butter, Tahitian vanilla bean",
 			color: "#F5E6D3",
-			image: `/img/core.png`,
+			image: `/img/white-chocolate.png`,
 		},
 	],
 	core: [
